@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <header>
+            <% if(!locals.user_name){%>
+                <a href="/register">Registrar</a>
+                <a href="/login">Iniciar Sesion</a>
+            <% } else { %>
+                <span> Bienvenido <%- locals.user_name%></span>
+                <a href="/logout">Cerrar sesion</a>
+            <% } %>
+        </header>

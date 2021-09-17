@@ -1,0 +1,11 @@
+<%- include('./partials/header')%>
+    <form action="/register" method="post">
+        <label for="">Usuario</label>
+        <input type="text" name="user_name">
+        <label for="">Contraseña</label>
+        <input type="password" name="pass">
+        <label for="">Fecha de nacimiento</label>
+        <input type="date" name="birth_date">
+        <input type="submit" value="Registrar">
+    </form>
+<%- include('./partials/footer')%>

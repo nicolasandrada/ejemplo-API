@@ -1,0 +1,13 @@
+<%- include('./partials/header')%>
+    <form action="/login" method="post">
+        <label for="user_name">Usuario</label>
+        <input type="text" name="user_name" id="user_name">
+        <label for="pass">Contraseña</label>
+        <input type="password" name="pass" id="pass">
+
+        <label for="remember_me">Recordarme</label>
+        <input type="checkbox" name="remember_me" id="remember_me">
+
+        <input type="submit" value="Iniciar Sesion">
+    </form>
+<%- include('./partials/footer')%>

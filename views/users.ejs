@@ -1,0 +1,19 @@
+<%- include('./partials/header')%>
+
+    <ul>
+        <% users.forEach(function(user){ %>
+            <li><%=user.id %></li>
+            <li><%=user.user_name %></li>
+            <li><%=user.birth_date %></li>
+            <li>
+                <form method="POST" action="/users/<%=user.id %>?_method=DELETE" >
+                    <input type="submit" value="Eliminar">
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <script src="/javascripts/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/funciones.js"></script>
+    
+<%- include('./partials/footer')%>
