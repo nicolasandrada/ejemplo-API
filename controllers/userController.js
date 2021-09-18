@@ -11,6 +11,9 @@ const userController = {
             }]
         })
         .then( user => {
+            if(user==undefined){
+                return res.render('login', {title: "Perfil", error:'El usuario y/o contraseña son invalidos'})
+            }
             req.session.user = user;
 
             //Si tildó recordame => creamos la cookie.
@@ -45,6 +48,7 @@ const userController = {
         if(req.session.user==undefined){
             return res.redirect('/')
         }
+        
         db.Users.findAll()
         .then( data => {
             return res.render('users', {users: data , title: "Perfiles"});

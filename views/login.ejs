@@ -10,4 +10,8 @@
 
         <input type="submit" value="Iniciar Sesion">
     </form>
+
+    <%if(error){ %>
+    <%-error %>
+    <%}%>
 <%- include('./partials/footer')%>

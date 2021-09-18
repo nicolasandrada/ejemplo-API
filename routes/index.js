@@ -5,7 +5,7 @@ const userController = require('../controllers/userController');
 
 /* Pagina principal . */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Pagina de Nico' });
 });
 
 /* Registro */
