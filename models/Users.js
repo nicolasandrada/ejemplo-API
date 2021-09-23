@@ -19,6 +19,9 @@ module.exports = function(sequelize, dataTypes){
         birth_date:{
             type: dataTypes.DATE,
         },
+        admin:{
+            type: dataTypes.BOOLEAN,
+        },
     }
 
     let config = {

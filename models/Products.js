@@ -24,6 +24,9 @@ module.exports = function(sequelize, dataTypes){
         },
         stock:{
             type: dataTypes.INTEGER,
+        },
+        img:{
+            type: dataTypes.STRING,
         }
     }
 

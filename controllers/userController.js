@@ -45,7 +45,7 @@ const userController = {
     },
        
     getAll: function(req, res){
-        if(req.session.user==undefined){
+        if(req.session.user==undefined || req.session.user.admin == false){
             return res.redirect('/')
         }
         
@@ -64,7 +64,8 @@ const userController = {
             id: null,      
             user_name: data.user_name,
             pass: data.pass,
-            birth_date: data.birth_date
+            birth_date: data.birth_date,
+            admin: false,
         }
            
         db.Users.create(user)
