@@ -11,6 +11,8 @@
                 <a href="/login">Iniciar Sesion</a>
             <% } else { %>
                 <span> Bienvenido <%- locals.user_name%></span>
+                <a href="/users/profile/<%- locals.id%>">Mi perfil</a>
+                <a href="/products">Cargar Producto</a>
                 <a href="/logout">Cerrar sesion</a>
             <% } %>
         </header>

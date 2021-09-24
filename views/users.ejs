@@ -1,17 +1,35 @@
 <%- include('./partials/header')%>
 
-    <ul>
+    <table border="1">
         <% users.forEach(function(user){ %>
-            <li><%=user.id %></li>
-            <li><%=user.user_name %></li>
-            <li><%=user.birth_date %></li>
-            <li>
-                <form method="POST" action="/users/<%=user.id %>?_method=DELETE" >
-                    <input type="submit" value="Eliminar">
-                </form>
-            </li>
+            <tr>
+                <td><%=user.id %></td>
+                <td><%=user.user_name %></td>
+                <td><%=user.birth_date %></td>
+                <td>
+                    <form method="POST" action="/users/delete/<%=user.id %>?_method=DELETE" >
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </td>
+                <td>
+                    <form method="GET" action="/users/modify/<%=user.id %>" >
+                        <input type="submit" value="Modificar">
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="/users/admin/<%=user.id %>?_method=PUT" >
+                    <% if(user.admin){ %>
+                        <input type="hidden" name="admin" value="false">
+                        <input type="submit" value="Quitar administrador">
+                    <% } else { %>
+                        <input type="hidden" name="admin" value="true">
+                        <input type="submit" value="Poner como administrador">
+                    <% } %>
+                    </form>
+                </td>
+            </tr>
         <% }); %>
-    </ul>
+        </table>
 
     <script src="/javascripts/jquery-3.6.0.min.js"></script>
     <script src="/javascripts/funciones.js"></script>

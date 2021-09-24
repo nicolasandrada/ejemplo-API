@@ -1,0 +1,26 @@
+<%- include('./partials/header')%>
+
+    <%if(product){ %>
+        <% if(locals.admin || locals.id == product.id_user){%>
+            <a href="/product/modify/<%=product.id %>">Modificar Producto</a>
+            <a href="/product/delete/<%=product.id %>">Eliminar Producto</a>
+        <% } %>
+
+        <h2><%=product.name %></h2>
+        <h2>descripcion <%=product.description %></h2>
+        <h2>cantidad <%=product.stock %></h2>
+        <h2>precio <%=product.price %></h2>
+        <h2><img src="<%=product.img %>" alt=""></h2>
+        <h2>
+            Subido por 
+            <a href="/users/profile/<%=product.user.id %>">
+                <%=product.user.user_name %>
+            </a>
+        </h2>
+    <%}else{%>
+        <h1>No existe producto</h1>
+    <%}%>
+
+    
+
+<%- include('./partials/footer')%>

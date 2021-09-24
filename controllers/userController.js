@@ -34,9 +34,17 @@ const userController = {
     getByID: function(req, res){
         let id = req.params.id;
 
-        db.Users.findByPk(id)
+        db.Users.findOne({
+            include: [{
+                model: db.Products,
+                as: 'products',
+            }],
+            where: {
+                id: id,
+            }, 
+        })
         .then(data =>{
-            console.log(data);
+            //console.log(data);
             return res.render('profile', { user: data , title: "Perfil"});
         })
         .catch(error =>{
@@ -91,7 +99,25 @@ const userController = {
         .catch( error => { 
             console.log(error);
         })
-    }
+    },
+
+    admin: function(req, res){
+        let user_admin = req.params.id;
+            
+        db.Users.update({
+            admin: req.body.admin,
+        },{
+            where: [
+                {id : user_admin}
+            ]
+        })
+        .then( () => {
+            return res.redirect('/users');
+        })
+        .catch( error => { 
+            console.log(error);
+        })
+    },
     
 }
 

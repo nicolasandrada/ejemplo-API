@@ -3,6 +3,15 @@
         <h1><%=user.id %></h1>
         <h1><%=user.user_name %></h1>
         <h1><%=user.birth_date %></h1>
+        <table border="1">
+            <% user.products.forEach(function(product){ %>
+                <tr>
+                    <td><%=product.id %></td>
+                    <td><%=product.name %></td>
+                    <td><%=product.stock %></td>
+                </tr>
+            <% }); %>
+        </table>
     <%}else{%>
         <h1>No existe perfil</h1>
     <%}%>

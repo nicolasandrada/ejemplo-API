@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function(sequelize, dataTypes){
 
     //Definir un alias.
@@ -34,10 +35,10 @@ module.exports = function(sequelize, dataTypes){
 
     Users.associate = function(models){
         Users.hasMany(models.Products,{
-           as:"products",
-           foreignKey:"id_user"
+           as: 'products',
+           foreignKey: 'id_user',
         });
-    } ;
+    };
 
    return Users;
 }

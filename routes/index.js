@@ -2,11 +2,10 @@ var express = require('express');
 var router = express.Router();
 const mainController = require('../controllers/mainController');
 const userController = require('../controllers/userController');
+const productController = require('../controllers/productController');
 
 /* Pagina principal . */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Pagina de Nico' });
-});
+router.get('/', productController.getAll );
 
 /* Registro */
 router.get('/register', mainController.register);
